@@ -1,4 +1,5 @@
 # ServeRestTest
+[![Badge ServeRest](https://img.shields.io/badge/API-ServeRest-green)](https://github.com/ServeRest/ServeRest/)
 
 ### 🎯 O Desafio
 Esse desafio tem por intúito se tornar como um portifólio e instrumento de estudo de testes de API.
