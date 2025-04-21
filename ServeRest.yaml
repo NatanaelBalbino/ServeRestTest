@@ -1,0 +1,587 @@
+openapi: 3.0.0
+info:
+  title: Serverest API
+  version: 1.0.0
+  description: API para simulação de e-commerce.
+
+servers:
+  - url: https://serverest.dev
+    description: Servidor principal
+
+paths:
+  /login:
+    post:
+      summary: Autentica um usuário
+      description: Retorna um token de autenticação para o usuário.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  format: email
+                  description: Email do usuário.
+                password:
+                  type: string
+                  description: Senha do usuário.
+              required:
+                - email
+                - password
+      responses:
+        '200':
+          description: Autenticação bem-sucedida.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  authorization:
+                    type: string
+                    description: Token de autenticação.
+        '400':
+          description: Requisição inválida.
+        '401':
+          description: Email ou senha incorretos.
+        '500':
+          description: Erro interno do servidor.
+
+  /usuarios:
+    get:
+      summary: Lista todos os usuários
+      description: Retorna uma lista de todos os usuários cadastrados.
+      responses:
+        '200':
+          description: Lista de usuários retornada com sucesso.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Usuario'
+        '500':
+          description: Erro interno do servidor.
+
+    post:
+      summary: Cria um novo usuário
+      description: Registra um novo usuário no sistema.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UsuarioCriacao'
+      responses:
+        '201':
+          description: Usuário criado com sucesso.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Mensagem de sucesso.
+                  _id:
+                    type: string
+                    description: ID do novo usuário.
+        '400':
+          description: Requisição inválida.
+        '409':
+          description: Email já cadastrado.
+        '500':
+          description: Erro interno do servidor.
+
+  /usuarios/{id}:
+    get:
+      summary: Busca um usuário por ID
+      description: Retorna os detalhes de um usuário específico com base no seu ID.
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: ID do usuário a ser buscado.
+      responses:
+        '200':
+          description: Usuário encontrado.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Usuario'
+        '400':
+          description: ID inválido.
+        '404':
+          description: Usuário não encontrado.
+        '500':
+          description: Erro interno do servidor.
+
+    put:
+      summary: Edita um usuário existente
+      description: Atualiza os dados de um usuário existente com base no seu ID.
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: ID do usuário a ser editado.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UsuarioEdicao'
+      responses:
+        '200':
+          description: Usuário atualizado com sucesso.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Mensagem de sucesso.
+        '400':
+          description: Requisição inválida.
+        '404':
+          description: Usuário não encontrado.
+        '500':
+          description: Erro interno do servidor.
+
+    delete:
+      summary: Remove um usuário
+      description: Remove um usuário do sistema com base no seu ID.
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: ID do usuário a ser removido.
+      responses:
+        '200':
+          description: Usuário removido com sucesso.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Mensagem de sucesso.
+        '400':
+          description: ID inválido.
+        '404':
+          description: Usuário não encontrado.
+        '500':
+          description: Erro interno do servidor.
+
+  /produtos:
+    get:
+      summary: Lista todos os produtos
+      description: Retorna uma lista de todos os produtos cadastrados.
+      responses:
+        '200':
+          description: Lista de produtos retornada com sucesso.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Produto'
+        '500':
+          description: Erro interno do servidor.
+
+    post:
+      summary: Cria um novo produto
+      description: Registra um novo produto no sistema.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProdutoCriacao'
+      responses:
+        '201':
+          description: Produto criado com sucesso.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Mensagem de sucesso.
+                  _id:
+                    type: string
+                    description: ID do novo produto.
+        '400':
+          description: Requisição inválida.
+        '409':
+          description: Nome já cadastrado.
+        '500':
+          description: Erro interno do servidor.
+
+  /produtos/{id}:
+    get:
+      summary: Busca um produto por ID
+      description: Retorna os detalhes de um produto específico com base no seu ID.
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: ID do produto a ser buscado.
+      responses:
+        '200':
+          description: Produto encontrado.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Produto'
+        '400':
+          description: ID inválido.
+        '404':
+          description: Produto não encontrado.
+        '500':
+          description: Erro interno do servidor.
+
+    put:
+      summary: Edita um produto existente
+      description: Atualiza os dados de um produto existente com base no seu ID.
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: ID do produto a ser editado.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProdutoEdicao'
+      responses:
+        '200':
+          description: Produto atualizado com sucesso.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Mensagem de sucesso.
+        '400':
+          description: Requisição inválida.
+        '404':
+          description: Produto não encontrado.
+        '500':
+          description: Erro interno do servidor.
+
+    delete:
+      summary: Remove um produto
+      description: Remove um produto do sistema com base no seu ID.
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: ID do produto a ser removido.
+      responses:
+        '200':
+          description: Produto removido com sucesso.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Mensagem de sucesso.
+        '400':
+          description: ID inválido.
+        '404':
+          description: Produto não encontrado.
+        '500':
+          description: Erro interno do servidor.
+
+  /carrinhos:
+    get:
+      summary: Lista todos os carrinhos
+      description: Retorna uma lista de todos os carrinhos cadastrados.
+      responses:
+        '200':
+          description: Lista de carrinhos retornada com sucesso.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Carrinho'
+        '500':
+          description: Erro interno do servidor.
+
+    post:
+      summary: Cria um novo carrinho
+      description: Cria um novo carrinho.  Requer um token de autenticação de usuário.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CarrinhoCriacao'
+      security:
+        - bearerAuth: []
+      responses:
+        '201':
+          description: Carrinho criado com sucesso.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Mensagem de sucesso.
+                  _id:
+                    type: string
+                    description: ID do novo carrinho.
+        '400':
+          description: Requisição inválida.
+        '500':
+          description: Erro interno do servidor.
+
+  /carrinhos/concluir-compra:
+    delete:
+      summary: Conclui a compra de um carrinho (remove todos os produtos)
+      description: Remove todos os produtos de um carrinho.  Requer um token de autenticação de usuário.
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Compra concluída com sucesso.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Mensagem de sucesso.
+        '400':
+          description: Requisição inválida.
+        '404':
+          description: Carrinho não encontrado.
+        '500':
+          description: Erro interno do servidor.
+
+  /carrinhos/cancelar-compra:
+    delete:
+      summary: Cancela a compra de um carrinho
+      description: Cancela a compra, removendo todos os produtos e o carrinho. Requer um token de autenticação de usuário.
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Compra cancelada com sucesso.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Mensagem de sucesso.
+        '400':
+          description: Requisição inválida.
+        '404':
+          description: Carrinho não encontrado.
+        '500':
+          description: Erro interno do servidor.
+
+components:
+  schemas:
+    Usuario:
+      type: object
+      properties:
+        nome:
+          type: string
+          description: Nome do usuário.
+        email:
+          type: string
+          format: email
+          description: Email do usuário.
+        password:
+          type: string
+          description: Senha do usuário.
+        administrador:
+          type: string
+          description: 'true ou false'
+        _id:
+          type: string
+          description: ID do usuário.
+      required:
+        - nome
+        - email
+        - password
+        - administrador
+
+    UsuarioCriacao:
+      type: object
+      properties:
+        nome:
+          type: string
+          description: Nome do usuário.
+        email:
+          type: string
+          format: email
+          description: Email do usuário.
+        password:
+          type: string
+          description: Senha do usuário.
+        administrador:
+          type: string
+          description: 'true ou false'
+      required:
+        - nome
+        - email
+        - password
+        - administrador
+
+    UsuarioEdicao:
+      type: object
+      properties:
+        nome:
+          type: string
+          description: Nome do usuário.
+        email:
+          type: string
+          format: email
+          description: Email do usuário.
+        password:
+          type: string
+          description: Senha do usuário.
+        administrador:
+          type: string
+          description: 'true ou false'
+
+    Produto:
+      type: object
+      properties:
+        nome:
+          type: string
+          description: Nome do produto.
+        preco:
+          type: integer
+          description: Preço do produto.
+        descricao:
+          type: string
+          description: Descrição do produto.
+        quantidade:
+          type: integer
+          description: Quantidade em estoque do produto.
+        _id:
+          type: string
+          description: ID do produto.
+      required:
+        - nome
+        - preco
+        - descricao
+        - quantidade
+
+    ProdutoCriacao:
+      type: object
+      properties:
+        nome:
+          type: string
+          description: Nome do produto.
+        preco:
+          type: integer
+          description: Preço do produto.
+        descricao:
+          type: string
+          description: Descrição do produto.
+        quantidade:
+          type: integer
+          description: Quantidade em estoque do produto.
+      required:
+        - nome
+        - preco
+        - descricao
+        - quantidade
+
+    ProdutoEdicao:
+      type: object
+      properties:
+        nome:
+          type: string
+          description: Nome do produto.
+        preco:
+          type: integer
+          description: Preço do produto.
+        descricao:
+          type: string
+          description: Descrição do produto.
+        quantidade:
+          type: integer
+          description: Quantidade em estoque do produto.
+
+    Carrinho:
+      type: object
+      properties:
+        produtos:
+          type: array
+          items:
+            type: object
+            properties:
+              idProduto:
+                type: string
+                description: ID do produto no carrinho.
+              quantidade:
+                type: integer
+                description: Quantidade do produto no carrinho.
+              precoUnitario:
+                type: integer
+                description: Preço unitário do produto.
+        precoTotal:
+          type: integer
+          description: Preço total do carrinho.
+        quantidadeTotal:
+          type: integer
+          description: Quantidade total de itens no carrinho.
+        idUsuario:
+          type: string
+          description: ID do usuário dono do carrinho.
+        _id:
+          type: string
+          description: ID do carrinho.
+
+    CarrinhoCriacao:
+      type: object
+      properties:
+        produtos:
+          type: array
+          items:
+            type: object
+            properties:
+              idProduto:
+                type: string
+                description: ID do produto no carrinho.
+              quantidade:
+                type: integer
+                description: Quantidade do produto no carrinho.
+
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

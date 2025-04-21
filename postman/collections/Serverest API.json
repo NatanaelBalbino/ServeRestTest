@@ -1,0 +1,2586 @@
+{
+	"info": {
+		"_postman_id": "5fde43e3-4484-4464-a5a9-66a665b44287",
+		"name": "Serverest API",
+		"description": "API para simulação de e-commerce.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "16047000-5fde43e3-4484-4464-a5a9-66a665b44287"
+	},
+	"item": [
+		{
+			"name": "login",
+			"item": [
+				{
+					"name": "Autentica um usuário",
+					"id": "86dea9a4-2560-4ec9-a9ef-b6c76fba2cb2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"<email>\",\n  \"password\": \"<string>\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"login"
+							]
+						},
+						"description": "Retorna um token de autenticação para o usuário."
+					},
+					"response": [
+						{
+							"id": "83e2bd10-786f-4325-a091-3ccb23cb7754",
+							"name": "Autenticação bem-sucedida.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"<email>\",\n  \"password\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"uuid": "1b00d72f-8834-4c9e-86a5-976983590977"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"authorization\": \"<string>\"\n}"
+						},
+						{
+							"id": "0f2b3331-dc98-4dd7-a5d2-dccc0ed46c4b",
+							"name": "Requisição inválida.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"<email>\",\n  \"password\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"id": "e6a4b3d0-2574-4496-a89f-52a8213cdd2c",
+							"name": "Email ou senha incorretos.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"<email>\",\n  \"password\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"id": "80ac5c14-168b-4b9f-8c2b-d1150833b792",
+							"name": "Erro interno do servidor.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"<email>\",\n  \"password\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			],
+			"id": "668ae1d7-ac29-46aa-a947-5e766fed795b"
+		},
+		{
+			"name": "usuarios",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "Busca um usuário por ID",
+							"id": "77d64b5a-831c-416d-a5ea-e296910f28b8",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/usuarios/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"usuarios",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<string>",
+											"description": "(Required) ID do usuário a ser buscado."
+										}
+									]
+								},
+								"description": "Retorna os detalhes de um usuário específico com base no seu ID."
+							},
+							"response": [
+								{
+									"id": "759a9505-b1ef-4086-bb13-302671aca929",
+									"name": "Usuário encontrado.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/usuarios/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"usuarios",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"uuid": "e94d52b1-7f14-426f-88e8-5bfc588a7413"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"nome\": \"<string>\",\n  \"email\": \"<email>\",\n  \"password\": \"<string>\",\n  \"administrador\": \"<string>\",\n  \"_id\": \"<string>\"\n}"
+								},
+								{
+									"id": "d0612298-518a-4278-8395-9f58c189bf0f",
+									"name": "ID inválido.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/usuarios/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"usuarios",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": null
+								},
+								{
+									"id": "294c9d9d-76c1-4961-9139-d188abbdd3be",
+									"name": "Usuário não encontrado.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/usuarios/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"usuarios",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": null
+								},
+								{
+									"id": "b27a7187-3176-46fe-a9a5-95ad68a32f76",
+									"name": "Erro interno do servidor.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/usuarios/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"usuarios",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": null
+								}
+							]
+						},
+						{
+							"name": "Edita um usuário existente",
+							"id": "7a4ae332-8d9b-4bf9-902e-e5da004d8410",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"nome\": \"<string>\",\n  \"email\": \"<email>\",\n  \"password\": \"<string>\",\n  \"administrador\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/usuarios/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"usuarios",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<string>",
+											"description": "(Required) ID do usuário a ser editado."
+										}
+									]
+								},
+								"description": "Atualiza os dados de um usuário existente com base no seu ID."
+							},
+							"response": [
+								{
+									"id": "24bbce9a-b337-4fae-92ac-c2c74092cb40",
+									"name": "Usuário atualizado com sucesso.",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"nome\": \"<string>\",\n  \"email\": \"<email>\",\n  \"password\": \"<string>\",\n  \"administrador\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/usuarios/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"usuarios",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"uuid": "6b4c468a-7e1e-4a62-ac6a-65ca64ba39b6"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"<string>\"\n}"
+								},
+								{
+									"id": "ebc3c717-4540-4cda-9b74-4ab4c08c91ac",
+									"name": "Requisição inválida.",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"nome\": \"<string>\",\n  \"email\": \"<email>\",\n  \"password\": \"<string>\",\n  \"administrador\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/usuarios/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"usuarios",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": null
+								},
+								{
+									"id": "730829a2-6a44-485f-a14b-0291ba529c0c",
+									"name": "Usuário não encontrado.",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"nome\": \"<string>\",\n  \"email\": \"<email>\",\n  \"password\": \"<string>\",\n  \"administrador\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/usuarios/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"usuarios",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": null
+								},
+								{
+									"id": "d47329d9-fda8-4881-ac28-6060d9b3a0dc",
+									"name": "Erro interno do servidor.",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"nome\": \"<string>\",\n  \"email\": \"<email>\",\n  \"password\": \"<string>\",\n  \"administrador\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/usuarios/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"usuarios",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": null
+								}
+							]
+						},
+						{
+							"name": "Remove um usuário",
+							"id": "5b3f2107-23a2-40e3-8217-45157566735b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/usuarios/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"usuarios",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<string>",
+											"description": "(Required) ID do usuário a ser removido."
+										}
+									]
+								},
+								"description": "Remove um usuário do sistema com base no seu ID."
+							},
+							"response": [
+								{
+									"id": "1f819a85-454a-4ea4-b36e-10f97a985915",
+									"name": "Usuário removido com sucesso.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/usuarios/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"usuarios",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"uuid": "b5ed08f6-b428-4abf-8f19-300bea91fd3f"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"<string>\"\n}"
+								},
+								{
+									"id": "45d1bceb-ccc7-43d9-b21f-2f84de10f665",
+									"name": "ID inválido.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/usuarios/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"usuarios",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": null
+								},
+								{
+									"id": "e5a43a9d-6dbf-48d3-abac-d2356a1b8c8b",
+									"name": "Usuário não encontrado.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/usuarios/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"usuarios",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": null
+								},
+								{
+									"id": "633ca859-163a-4fa7-a3ab-81a29d1efcc1",
+									"name": "Erro interno do servidor.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/usuarios/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"usuarios",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": null
+								}
+							]
+						}
+					],
+					"id": "5b367745-3f3b-428f-b627-b713526a32f3"
+				},
+				{
+					"name": "Lista todos os usuários",
+					"id": "e0d6d77b-4493-4938-936d-f9ca2dd0764b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/usuarios",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"usuarios"
+							]
+						},
+						"description": "Retorna uma lista de todos os usuários cadastrados."
+					},
+					"response": [
+						{
+							"id": "d27b8b6f-26a7-4629-8c2d-4952b7e42d88",
+							"name": "Lista de usuários retornada com sucesso.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/usuarios",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"usuarios"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"uuid": "e7fdfbea-6179-46b4-818b-1d9c56de4480"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"nome\": \"<string>\",\n    \"email\": \"<email>\",\n    \"password\": \"<string>\",\n    \"administrador\": \"<string>\",\n    \"_id\": \"<string>\"\n  },\n  {\n    \"nome\": \"<string>\",\n    \"email\": \"<email>\",\n    \"password\": \"<string>\",\n    \"administrador\": \"<string>\",\n    \"_id\": \"<string>\"\n  }\n]"
+						},
+						{
+							"id": "824a01a2-6089-417c-8ec6-d662936ad683",
+							"name": "Erro interno do servidor.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/usuarios",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"usuarios"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Cria um novo usuário",
+					"id": "e8b6237d-a88e-4a9d-bd41-a2d91d4d76e5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nome\": \"<string>\",\n  \"email\": \"<email>\",\n  \"password\": \"<string>\",\n  \"administrador\": \"<string>\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/usuarios",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"usuarios"
+							]
+						},
+						"description": "Registra um novo usuário no sistema."
+					},
+					"response": [
+						{
+							"id": "179bf1e7-c7b9-43c1-9da7-84418f637cb9",
+							"name": "Usuário criado com sucesso.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"nome\": \"<string>\",\n  \"email\": \"<email>\",\n  \"password\": \"<string>\",\n  \"administrador\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/usuarios",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"usuarios"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"uuid": "57670edf-5b18-408f-8499-a45476b81130"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"<string>\",\n  \"_id\": \"<string>\"\n}"
+						},
+						{
+							"id": "645175ff-940d-4313-ba5e-f8e264fdf506",
+							"name": "Requisição inválida.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"nome\": \"<string>\",\n  \"email\": \"<email>\",\n  \"password\": \"<string>\",\n  \"administrador\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/usuarios",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"usuarios"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"id": "3a01ff83-7ab1-4a43-9e5f-d152f539ecb2",
+							"name": "Email já cadastrado.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"nome\": \"<string>\",\n  \"email\": \"<email>\",\n  \"password\": \"<string>\",\n  \"administrador\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/usuarios",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"usuarios"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"id": "97982d86-7d3e-4df7-b4ef-2edbcaeb8f38",
+							"name": "Erro interno do servidor.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"nome\": \"<string>\",\n  \"email\": \"<email>\",\n  \"password\": \"<string>\",\n  \"administrador\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/usuarios",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"usuarios"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			],
+			"id": "5bfeaaf9-3508-4511-a272-248cb55233e5"
+		},
+		{
+			"name": "produtos",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "Busca um produto por ID",
+							"id": "210f6ef4-4252-40a5-8a58-0d1d513af5e1",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/produtos/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"produtos",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<string>",
+											"description": "(Required) ID do produto a ser buscado."
+										}
+									]
+								},
+								"description": "Retorna os detalhes de um produto específico com base no seu ID."
+							},
+							"response": [
+								{
+									"id": "de68b59e-abaa-41df-ab2f-c6206d26efa6",
+									"name": "Produto encontrado.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/produtos/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"produtos",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"uuid": "02dd12ff-6bc6-4126-9dbc-60e9daa48f28"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"nome\": \"<string>\",\n  \"preco\": \"<integer>\",\n  \"descricao\": \"<string>\",\n  \"quantidade\": \"<integer>\",\n  \"_id\": \"<string>\"\n}"
+								},
+								{
+									"id": "ba9261b6-9298-47b2-9736-51e874b1d50f",
+									"name": "ID inválido.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/produtos/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"produtos",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": null
+								},
+								{
+									"id": "5eb515ac-6dc4-4726-a5d1-a8d96e2cddd8",
+									"name": "Produto não encontrado.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/produtos/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"produtos",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": null
+								},
+								{
+									"id": "2d1dc383-144f-4ebb-a472-8ac647fafc69",
+									"name": "Erro interno do servidor.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/produtos/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"produtos",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": null
+								}
+							]
+						},
+						{
+							"name": "Edita um produto existente",
+							"id": "42afa1fe-6291-4a82-82ff-d42e106216c2",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"nome\": \"<string>\",\n  \"preco\": \"<integer>\",\n  \"descricao\": \"<string>\",\n  \"quantidade\": \"<integer>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/produtos/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"produtos",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<string>",
+											"description": "(Required) ID do produto a ser editado."
+										}
+									]
+								},
+								"description": "Atualiza os dados de um produto existente com base no seu ID."
+							},
+							"response": [
+								{
+									"id": "09d73bd3-3679-4e89-80ad-fb25ae84fd98",
+									"name": "Produto atualizado com sucesso.",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"nome\": \"<string>\",\n  \"preco\": \"<integer>\",\n  \"descricao\": \"<string>\",\n  \"quantidade\": \"<integer>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/produtos/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"produtos",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"uuid": "41d985f3-12bf-4ab8-b9a7-c26420e53961"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"<string>\"\n}"
+								},
+								{
+									"id": "5665df0e-1533-4fd0-a858-881b06fab86c",
+									"name": "Requisição inválida.",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"nome\": \"<string>\",\n  \"preco\": \"<integer>\",\n  \"descricao\": \"<string>\",\n  \"quantidade\": \"<integer>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/produtos/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"produtos",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": null
+								},
+								{
+									"id": "501f1dbb-ccec-4400-ba68-d55f694d1e01",
+									"name": "Produto não encontrado.",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"nome\": \"<string>\",\n  \"preco\": \"<integer>\",\n  \"descricao\": \"<string>\",\n  \"quantidade\": \"<integer>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/produtos/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"produtos",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": null
+								},
+								{
+									"id": "fad6eea6-607d-426f-9b9e-331b60af8276",
+									"name": "Erro interno do servidor.",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"nome\": \"<string>\",\n  \"preco\": \"<integer>\",\n  \"descricao\": \"<string>\",\n  \"quantidade\": \"<integer>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/produtos/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"produtos",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": null
+								}
+							]
+						},
+						{
+							"name": "Remove um produto",
+							"id": "9493ca33-fa96-4fcd-9d79-7b20cef049b4",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/produtos/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"produtos",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<string>",
+											"description": "(Required) ID do produto a ser removido."
+										}
+									]
+								},
+								"description": "Remove um produto do sistema com base no seu ID."
+							},
+							"response": [
+								{
+									"id": "80e0deb3-ef39-40ee-98f0-a5848f732c14",
+									"name": "Produto removido com sucesso.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/produtos/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"produtos",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"uuid": "b026c9f6-b1a5-453e-ad05-1cfff0c45d12"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"<string>\"\n}"
+								},
+								{
+									"id": "10347e15-364b-4d29-822d-0656b3ffafd1",
+									"name": "ID inválido.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/produtos/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"produtos",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": null
+								},
+								{
+									"id": "e8c10dbc-e3b7-48c1-8f77-0d44a45fb552",
+									"name": "Produto não encontrado.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/produtos/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"produtos",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": null
+								},
+								{
+									"id": "f8cc17a4-be70-49fc-8484-f708ac02104b",
+									"name": "Erro interno do servidor.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/produtos/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"produtos",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": null
+								}
+							]
+						}
+					],
+					"id": "55d69c3a-ed22-4a38-98c6-52b7c69f3d51"
+				},
+				{
+					"name": "Lista todos os produtos",
+					"id": "2ed97894-5a7a-4012-bafe-15f16ce574eb",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/produtos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"produtos"
+							]
+						},
+						"description": "Retorna uma lista de todos os produtos cadastrados."
+					},
+					"response": [
+						{
+							"id": "40fe9b00-c15e-4b72-a22b-08cc2007ab54",
+							"name": "Lista de produtos retornada com sucesso.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/produtos",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"produtos"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"uuid": "4560d469-834b-4665-ae99-9158f8dbabcc"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"nome\": \"<string>\",\n    \"preco\": \"<integer>\",\n    \"descricao\": \"<string>\",\n    \"quantidade\": \"<integer>\",\n    \"_id\": \"<string>\"\n  },\n  {\n    \"nome\": \"<string>\",\n    \"preco\": \"<integer>\",\n    \"descricao\": \"<string>\",\n    \"quantidade\": \"<integer>\",\n    \"_id\": \"<string>\"\n  }\n]"
+						},
+						{
+							"id": "8a27d53c-f0c9-407f-8ca5-a9634d2c2f26",
+							"name": "Erro interno do servidor.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/produtos",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"produtos"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Cria um novo produto",
+					"id": "a77e4852-b20f-4f3b-b07f-0496879e4c0c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nome\": \"<string>\",\n  \"preco\": \"<integer>\",\n  \"descricao\": \"<string>\",\n  \"quantidade\": \"<integer>\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/produtos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"produtos"
+							]
+						},
+						"description": "Registra um novo produto no sistema."
+					},
+					"response": [
+						{
+							"id": "834b93f0-bf6f-42d7-9554-a309311666de",
+							"name": "Produto criado com sucesso.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"nome\": \"<string>\",\n  \"preco\": \"<integer>\",\n  \"descricao\": \"<string>\",\n  \"quantidade\": \"<integer>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/produtos",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"produtos"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"uuid": "92f77831-7834-4a0f-8223-4b09cc4ce46c"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"<string>\",\n  \"_id\": \"<string>\"\n}"
+						},
+						{
+							"id": "abe9e974-99fe-4417-b793-395d79c82c0a",
+							"name": "Requisição inválida.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"nome\": \"<string>\",\n  \"preco\": \"<integer>\",\n  \"descricao\": \"<string>\",\n  \"quantidade\": \"<integer>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/produtos",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"produtos"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"id": "a2a43edf-0f30-42e7-899c-0ee754d4ebf7",
+							"name": "Nome já cadastrado.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"nome\": \"<string>\",\n  \"preco\": \"<integer>\",\n  \"descricao\": \"<string>\",\n  \"quantidade\": \"<integer>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/produtos",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"produtos"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"id": "0587585d-6753-4466-9b00-8ccfe909988c",
+							"name": "Erro interno do servidor.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"nome\": \"<string>\",\n  \"preco\": \"<integer>\",\n  \"descricao\": \"<string>\",\n  \"quantidade\": \"<integer>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/produtos",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"produtos"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			],
+			"id": "10fccca0-45f3-4b13-aa47-3cf95bbb6548"
+		},
+		{
+			"name": "carrinhos",
+			"item": [
+				{
+					"name": "concluir-compra",
+					"item": [
+						{
+							"name": "Conclui a compra de um carrinho (remove todos os produtos)",
+							"id": "42de3038-d5dd-4b3d-b97a-9643dcc39a36",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/carrinhos/concluir-compra",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"carrinhos",
+										"concluir-compra"
+									]
+								},
+								"description": "Remove todos os produtos de um carrinho.  Requer um token de autenticação de usuário."
+							},
+							"response": [
+								{
+									"id": "acb07af8-93a5-4639-b990-13950eccec67",
+									"name": "Compra concluída com sucesso.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/carrinhos/concluir-compra",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"carrinhos",
+												"concluir-compra"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"uuid": "fc5caca7-9bd2-43cc-a098-53d4f49f6182"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"<string>\"\n}"
+								},
+								{
+									"id": "2690e968-e719-4ce0-afe8-5a906e094adc",
+									"name": "Requisição inválida.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/carrinhos/concluir-compra",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"carrinhos",
+												"concluir-compra"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": null
+								},
+								{
+									"id": "dffc4aeb-e2b9-48ee-8073-8b79ee62c71c",
+									"name": "Carrinho não encontrado.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/carrinhos/concluir-compra",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"carrinhos",
+												"concluir-compra"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": null
+								},
+								{
+									"id": "e5f29840-fe02-4ae3-957c-6afe3710ac7e",
+									"name": "Erro interno do servidor.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/carrinhos/concluir-compra",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"carrinhos",
+												"concluir-compra"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": null
+								}
+							]
+						}
+					],
+					"id": "ff3a4533-c385-49d4-a44f-64a6dc638115"
+				},
+				{
+					"name": "cancelar-compra",
+					"item": [
+						{
+							"name": "Cancela a compra de um carrinho",
+							"id": "5ce1e94e-d858-465d-a0f3-dca697cb6c0f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/carrinhos/cancelar-compra",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"carrinhos",
+										"cancelar-compra"
+									]
+								},
+								"description": "Cancela a compra, removendo todos os produtos e o carrinho. Requer um token de autenticação de usuário."
+							},
+							"response": [
+								{
+									"id": "cdf64647-be16-431b-86c1-b629500bb45b",
+									"name": "Compra cancelada com sucesso.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/carrinhos/cancelar-compra",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"carrinhos",
+												"cancelar-compra"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"uuid": "a4a77b0a-aced-4d69-80a5-7bdb245939d9"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"<string>\"\n}"
+								},
+								{
+									"id": "1767b6f1-2c59-4468-a7d5-f4d113f572d0",
+									"name": "Requisição inválida.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/carrinhos/cancelar-compra",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"carrinhos",
+												"cancelar-compra"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": null
+								},
+								{
+									"id": "13a4f481-424d-4558-8e62-53112b8eabfc",
+									"name": "Carrinho não encontrado.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/carrinhos/cancelar-compra",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"carrinhos",
+												"cancelar-compra"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": null
+								},
+								{
+									"id": "bd640696-afed-409d-a74a-062f735241c0",
+									"name": "Erro interno do servidor.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/carrinhos/cancelar-compra",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"carrinhos",
+												"cancelar-compra"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": null
+								}
+							]
+						}
+					],
+					"id": "67865590-aa8f-4030-bb9e-9db04527914d"
+				},
+				{
+					"name": "Lista todos os carrinhos",
+					"id": "d49c0157-76b9-4f32-a4bf-21caec1ba8cb",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/carrinhos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"carrinhos"
+							]
+						},
+						"description": "Retorna uma lista de todos os carrinhos cadastrados."
+					},
+					"response": [
+						{
+							"id": "4c8c2060-4dd5-4f7c-ab01-a9c3d3414827",
+							"name": "Lista de carrinhos retornada com sucesso.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/carrinhos",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"carrinhos"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"uuid": "bd7b9329-ea3d-43e0-8e3f-7846e39623dd"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"produtos\": [\n      {\n        \"idProduto\": \"<string>\",\n        \"quantidade\": \"<integer>\",\n        \"precoUnitario\": \"<integer>\"\n      },\n      {\n        \"idProduto\": \"<string>\",\n        \"quantidade\": \"<integer>\",\n        \"precoUnitario\": \"<integer>\"\n      }\n    ],\n    \"precoTotal\": \"<integer>\",\n    \"quantidadeTotal\": \"<integer>\",\n    \"idUsuario\": \"<string>\",\n    \"_id\": \"<string>\"\n  },\n  {\n    \"produtos\": [\n      {\n        \"idProduto\": \"<string>\",\n        \"quantidade\": \"<integer>\",\n        \"precoUnitario\": \"<integer>\"\n      },\n      {\n        \"idProduto\": \"<string>\",\n        \"quantidade\": \"<integer>\",\n        \"precoUnitario\": \"<integer>\"\n      }\n    ],\n    \"precoTotal\": \"<integer>\",\n    \"quantidadeTotal\": \"<integer>\",\n    \"idUsuario\": \"<string>\",\n    \"_id\": \"<string>\"\n  }\n]"
+						},
+						{
+							"id": "aefd101c-607b-42cb-a9d4-8acba11f83d2",
+							"name": "Erro interno do servidor.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/carrinhos",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"carrinhos"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Cria um novo carrinho",
+					"id": "7ad99a59-bef4-4b15-a968-2028e78f9db3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"produtos\": [\n    {\n      \"idProduto\": \"<string>\",\n      \"quantidade\": \"<integer>\"\n    },\n    {\n      \"idProduto\": \"<string>\",\n      \"quantidade\": \"<integer>\"\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/carrinhos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"carrinhos"
+							]
+						},
+						"description": "Cria um novo carrinho.  Requer um token de autenticação de usuário."
+					},
+					"response": [
+						{
+							"id": "d7d97047-9d9b-47cc-bf3b-cc7b6f6b91d5",
+							"name": "Carrinho criado com sucesso.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"produtos\": [\n    {\n      \"idProduto\": \"<string>\",\n      \"quantidade\": \"<integer>\"\n    },\n    {\n      \"idProduto\": \"<string>\",\n      \"quantidade\": \"<integer>\"\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/carrinhos",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"carrinhos"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"uuid": "1cb6fa0a-f704-4321-b5ae-568c703f7989"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"<string>\",\n  \"_id\": \"<string>\"\n}"
+						},
+						{
+							"id": "536a80a2-ebde-4f1f-9eb8-50b35c1c9f09",
+							"name": "Requisição inválida.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"produtos\": [\n    {\n      \"idProduto\": \"<string>\",\n      \"quantidade\": \"<integer>\"\n    },\n    {\n      \"idProduto\": \"<string>\",\n      \"quantidade\": \"<integer>\"\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/carrinhos",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"carrinhos"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"id": "529cae5d-4b01-48fb-8ce9-d0500e8d25d1",
+							"name": "Erro interno do servidor.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"produtos\": [\n    {\n      \"idProduto\": \"<string>\",\n      \"quantidade\": \"<integer>\"\n    },\n    {\n      \"idProduto\": \"<string>\",\n      \"quantidade\": \"<integer>\"\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/carrinhos",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"carrinhos"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			],
+			"id": "6ea3a078-83ca-4349-93df-86307548bafa"
+		}
+	],
+	"variable": [
+		{
+			"id": "5b52343f-57e1-4c9a-bca4-262e469b632e",
+			"key": "baseUrl",
+			"value": "https://serverest.dev"
+		}
+	]
+}
